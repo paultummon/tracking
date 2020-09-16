@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://swishphish2005:Toshiba2005!@cluster0.jurxe.mongodb.net/location?retryWrites=true&w=majority",
+    "jwtSecret": "sl_myJwtSecret"
+}
