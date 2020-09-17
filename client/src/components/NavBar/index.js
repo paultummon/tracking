@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import css from './NavBar.module.css'
-import RegisterModal from '../Auth'
+import RegisterModal from '../RegisterModal'
 import LogoutModal from '../LogoutModal'
 import LoginModal from '../LoginModal'
 import {connect} from 'react-redux'
@@ -69,7 +69,7 @@ class NavBar extends Component {
             <div>
                 <Navbar color="dark" dark expand="sm" className="mb-5">
                     <Container>
-                        <NavbarBrand href="/">ShoppingList</NavbarBrand>
+                        <NavbarBrand href="/">Location</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className='ml-auto' navbar>

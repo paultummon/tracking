@@ -1,0 +1,29 @@
+.navBar {
+    position: relative;
+
+    z-index: 1;
+    
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    display:flex;
+    justify-content: space-between;
+    color: white;
+
+
+    box-shadow: 0 4px 2px -2px gray;
+
+    background-image: linear-gradient(to top, rgba(52, 58, 64, 0), rgba(52, 58, 64, 1));
+    align-items: center;
+}
+
+.navBar > div, a {
+    text-decoration: none;
+    align-items: center;
+    padding: 20px;
+    margin: 0 10px 0 10px;
+}
+
+.logLinks {
+    display: flex;
+}

@@ -1,0 +1,345 @@
+.mapContainer2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.mapContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.mapContainer3 {
+  border: 1px solid black;
+  position: relative;
+  width: 1000px;
+  height: 1000px;
+}
+
+.patientSearchContainer {
+  z-index: 3;
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  border: 1px solid black;
+  right: 70px;
+  bottom: 20px;
+  transition: 0.5s;
+}
+
+.searchDropdownContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.patientSearchInput {
+  outline: none;
+  border: 1px solid black;
+}
+
+.displayBlock {
+  display: block !important;
+}
+.displayNone {
+  display: none;
+}
+
+.dropDownContent {
+  z-index: 5000;
+  position: absolute;
+  right: 0px;
+  top: 5px;
+  width: 100%;
+}
+
+.dropDownContent li {
+  border-bottom: 1px solid #ededed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  width: 100%;
+  background: #f5f5f5;
+}
+
+.dropDownContent li:hover {
+  filter: brightness(75%);
+}
+
+.searchInput {
+  display: flex;
+  height: 20px;
+  top: 10px;
+  right: 20px;
+  position: absolute;
+}
+
+.searchInput:hover .patientSearchContainer {
+  height: 300px;
+}
+
+@media only screen and (max-width: 620px) {
+  .patientSearchContainer {
+    width: 300px;
+  }
+}
+
+.patientSearchInput {
+  flex: 3;
+}
+
+.patientSearchButton {
+  flex: 1.5;
+}
+
+.patientButton {
+  height: 100%;
+  width: 100%;
+}
+
+.patientInput {
+  height: 80%;
+  width: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.patientSearchInput:hover .patientSearchList {
+  display: block;
+}
+
+.patientSearchList {
+  position: absolute;
+  display: none;
+}
+
+.patientSearchMapContainer {
+  right: 50px;
+  bottom: 50px;
+  position: fixed;
+  width: 500px;
+  transition: 0.5s;
+  z-index: 100;
+}
+
+body {
+  margin: 0;
+}
+
+.mapContainer1 {
+  position: fixed;
+  width: 1000px;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -500px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.mapNavBar {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+  background: blue;
+  height: 1000px;
+}
+
+.navBar > div {
+  flex: 1;
+}
+
+.sidenav {
+  height: 100%;
+  position: absolute;
+  z-index: 2000;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  width: 30px;
+  background-color: rgba(17, 17, 17, 0.5);
+  border-right: 10px solid rgba(17, 17, 17, 0.9)
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.arrowOne {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.arrowBox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.sidenav input {
+  height: 30px;
+  width: 150px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  border: none;
+}
+
+.sidenav input:focus {
+  outline: none;
+}
+
+.sidenav label {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.sidenav:hover {
+  width: 250px;
+}
+
+.sidenav:hover .arrowBox {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.sideNavWidth {
+  width: 250px;
+}
+
+.sideNavWithoutWidth {
+  width: 30px;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.staffList {
+  position: absolute;
+  display: none;
+  list-style: none;
+  width: 93px;
+  top: 18px;
+  left: 30px;
+  border: 1px solid grey;
+}
+
+.staffList > li {
+  background: #faf8f2;
+  height: 20px;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+}
+
+.staffList > li:hover {
+  filter: brightness(85%);
+}
+
+.staffListContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.staffListContainer:hover .staffList {
+  display: block;
+}
+
+.chatWindow {
+}
+
+.windowContainer {
+  margin-left: 30px;
+}
+
+.window {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 400px;
+  width: 200px;
+  background-color: #faf8f2;
+  border: 1px solid black;
+}
+.textMessages > h1 {
+  display: block;
+}
+.textLeft {
+  width: 100%;
+  float: left;
+}
+.textRight {
+  width: 100%;
+  float: right;
+}
+
+.dropDownContainer {
+  margin-left: 30px;
+}
+
+.mapLocator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  height: 300px;
+  width: 500px;
+  border: 1px solid black;
+  z-index: 3;
+  background: white;
+}
+
+.patientLocator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+}
+
+.mapViewContainer {
+  display: relative;
+}

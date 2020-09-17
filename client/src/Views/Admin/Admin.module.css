@@ -1,0 +1,351 @@
+.adminGrid {
+  margin: 10px;
+  display: grid;
+  grid-template-areas:
+    "header header header main main main"
+    "header header header main main main"
+    "footer footer footer footer footer footer";
+  grid-gap: 10px;
+}
+
+.adminGrid > div {
+  height: 400px;
+  box-shadow: 0 0 5px 10px #555;
+}
+
+.adminNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  height: 100%;
+  background-image: url("../../imgs/patientCare.jpg");
+  background-size: cover;
+}
+
+.adminNav > div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrowBox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.arrowBoxCenterLeft {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg) scale(2, 2);
+  -webkit-transform: rotate(-45deg) scale(2, 2);
+}
+
+.arrowBoxCenterRight {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-225deg) scale(2, 2);
+  -webkit-transform: rotate(-225deg) scale(2, 2);
+}
+
+.arrowBoxLeft {
+  background-image: linear-gradient(
+    to left,
+    rgba(52, 58, 64, 0),
+    rgba(52, 58, 64, 1)
+  );
+  flex: 1;
+}
+
+.arrowBoxLeft:hover {
+  cursor: pointer;
+  filter: brightness(85%);
+}
+
+.arrowBoxRight {
+  background-image: linear-gradient(
+    to right,
+    rgba(52, 58, 64, 0),
+    rgba(52, 58, 64, 1)
+  );
+  flex: 1;
+}
+
+.arrowBoxRight:hover {
+  cursor: pointer;
+  filter: brightness(85%);
+}
+
+.navContent {
+  flex: 10;
+}
+
+.centerNavContent {
+  background-color: rgba(222, 223, 224, 0.7);
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 80%;
+}
+
+.header {
+  grid-area: header;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.titleContainer {
+  top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.adminGrid > div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registerContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.registrationForm {
+  display: block;
+}
+
+.minimised {
+  width: 0% !important;
+}
+
+.registrationFormInput {
+  display: none;
+}
+
+.display {
+  display: block;
+}
+
+.adminForm {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  height: 600px;
+  align-items: center;
+  border: 1px solid black;
+  width: 0px;
+}
+
+.expandedForm {
+  width: 500px !important;
+  z-index: 0 !important;
+}
+
+.registrationForm > input {
+  width: 300px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid blue;
+}
+
+.patientSearchInput {
+  outline: none;
+  border: 1px solid black;
+}
+
+label {
+  margin-top: 10px;
+}
+.veil {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgb(220, 220, 220);
+  opacity: 0.8;
+  z-index: 5000;
+}
+
+.veilFull {
+  width: 100%;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.effect5 {
+  position: relative;
+}
+.effect5:before,
+.effect5:after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 25px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width: 300px;
+  background: #777;
+  -webkit-box-shadow: 0 35px 20px #777;
+  -moz-box-shadow: 0 35px 20px #777;
+  box-shadow: 0 35px 20px #777;
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  -o-transform: rotate(-8deg);
+  -ms-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+}
+.effect5:after {
+  -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  -o-transform: rotate(8deg);
+  -ms-transform: rotate(8deg);
+  transform: rotate(8deg);
+  right: 10px;
+  left: auto;
+}
+
+.adminContainer {
+  position: relative;
+  height: 1000px;
+  width: 100%;
+  background-color: blue;
+  /* background-image: url('../../../public/imgs/patientCare.jpg'); */
+}
+
+.patientRegistrationContainer {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 120px;
+  background-color: rgb(124, 122, 122, 0.9);
+  border-right: 10px solid rgba(17, 17, 17);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.expanded {
+  width: 100% !important;
+}
+
+.expanded2 {
+  width: 100% !important;
+  z-index: 0 !important;
+}
+
+.staffRegistrationContainer {
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 80px;
+  background-color: rgb(124, 122, 122, 0.9);
+  border-right: 10px solid rgba(182, 60, 60, 0.9);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.updateContainer {
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 40px;
+  background-color: rgb(124, 122, 122, 0.9);
+  border-right: 10px solid rgba(85, 145, 73, 0.9);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}

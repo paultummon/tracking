@@ -1,0 +1,18 @@
+.marquee {
+    position: absolute;
+    z-index: 2000;
+    top: 65px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: rgba(17, 17, 17, 0.1);
+    box-shadow: 
+    inset 0px 11px 8px -10px #CCC,
+    10px 15px 5px 0px rgba(0,0,0,0.24),
+    inset 0px -11px 8px -10px #CCC; 
+}
+
+.notificationContainer > span {
+    display: inline-block;
+    margin: 0 50px 0 50px;
+}

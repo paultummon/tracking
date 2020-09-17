@@ -18,6 +18,10 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    admin: {
+        type: String,
+        required: true
+    },
     registered_date: {
         type: Date, 
         default: Date.now

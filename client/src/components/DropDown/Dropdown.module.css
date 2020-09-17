@@ -1,0 +1,36 @@
+.searchInpt {
+  margin-top: 20px;
+  background-color: white;
+  color: white;
+  padding: 12px;
+  font-size: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+  
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  width: 100%;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+  
+.dropdownContent a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+  
+.dropdown a:hover {background-color: #ddd;}
+  
+.show {display: block;}
+
+
