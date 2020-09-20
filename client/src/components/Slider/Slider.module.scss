@@ -1,7 +1,7 @@
 .slider {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -9,7 +9,7 @@
     align-items: center;
     overflow: hidden;
     background-image: url("../../imgs/patientCare.jpg");
-
+    background-size: cover;
 }
 
 .slide {
@@ -29,16 +29,49 @@
     align-items: center;
     width: 7%;
     height: 100%;
-    background-color: white;
-    color: white;
 }
 
 .goLeft {
+    background-image: linear-gradient(
+      to left,
+      rgba(52, 58, 64, 0),
+      rgba(52, 58, 64, 1)
+    );
     @extend %btn-styles;
     left: 0;
 }
 
 .goRight {
+    background-image: linear-gradient(
+      to right,
+      rgba(52, 58, 64, 0),
+      rgba(52, 58, 64, 1)
+    );
     @extend %btn-styles;
     right: 0;
 }
+
+.arrowBoxCenterLeft {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg) scale(2, 2);
+    -webkit-transform: rotate(-45deg) scale(2, 2);
+  }
+  
+  .arrowBoxCenterRight {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-225deg) scale(2, 2);
+    -webkit-transform: rotate(-225deg) scale(2, 2);
+  }
+  
+  .goLeft:hover, .goRight:hover {
+    cursor: pointer;
+    filter: brightness(85%);
+  }
+  
+ 
