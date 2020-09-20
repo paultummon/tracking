@@ -14,6 +14,12 @@ import ClickAway from '../../components/ClickAway'
 const patients = [{ id: 2332, currentPerimeterLocation: { lat: 54.841810, lng: -7.263500, radius: 300 }, baseLocation: { lat: 54.841810, lng: -7.263500 } }, { id: 2332, currentPerimeterLocation: { lat: 54.855466, lng: -7.226855, radius: 300 }, baseLocation: { lat: 54.855466, lng: -7.226855 } }, { id: 2332, currentPerimeterLocation: { lat: 54.862185, lng: -7.281480, radius: 300 }, baseLocation: { lat: 54.862185, lng: -7.281480 } }]
 const staffList = [{ id: 3434, name: 'Lucille Ball', lat: 54.859023, lng: -7.276382 }, { id: 2344, name: 'Carlos Engreva', lat: 54.845188, lng: -7.239647 }]
 
+const updatePatientLocation = e => {
+  const { latLng } = e;
+  const lat = latLng.lat();
+  const lng = latLng.lng();
+}
+
 const renderStaffMarkers = (staffList) => {
   return staffList.map((staff, index) => {
     const { lat, lng } = staff
@@ -74,12 +80,6 @@ const togglePatientMapView = (e) => {
   e.preventDefault()
 }
 
-const getCurrentPosition = (options = {}) => {
-  return new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(resolve, reject, options)
-  })
-}
-
 const filterPatients = (inputValue, patients, updatePatientList) => {
   updatePatientList((prevState) => {
     return prevState
@@ -87,13 +87,7 @@ const filterPatients = (inputValue, patients, updatePatientList) => {
 }
 
 const MapViewComponent = (props) => {
-  useEffect(() => {
-      console.log('THIS IS PROPS ====>', props)
-    // console.log('THIS IS PROPS ====>', this.state.props)
-    // const { activeUser, loadLoggedInUserDetails } = props
-    // loadLoggedInUserDetails(activeUser)
-    return () => {}
-  }, [])
+
   const patientSearchRef = useRef(null)
   const [patientList, usePatientList] = useState(patients)
   const listItemArray = [{ id: 2344, name: 'Abigail Abbot' }, { id: 2433, name: 'Jerry Jeckles' }, { id: 5453, name: 'Carsar Cali' }, { id: 5332, name: 'Wally Waze' }, { id: 6342, name: 'Sid Sidcup' }, { id: 7343, name: 'Violet Viera' }, { id: 7843, name: 'Giles Gilbert' }]
@@ -109,33 +103,10 @@ const MapViewComponent = (props) => {
     })
   }
 
-  const [geoLocation, setGeoLocation] = useState({ lat: '', lng: '' })
-  const [loading, setLoading] = useState(true)
   const [renderPatientSearchDropDown, useRenderPatientSearchDropDown] = useState(false)
-  useEffect(() => {
-    async function fetchData () {
-      try {
-        const { coords } = await getCurrentPosition()
-        setLocation(coords)
-      } catch (err) {
-        console.error(err)
-      }
-    }
-    fetchData()
-    return () => {
-    }
-  }, [])
-
-  const setLocation = (coordinates) => {
-    const { latitude, longitude } = coordinates
-    setGeoLocation({ lat: latitude, lng: longitude })
-    setLoading(false)
-  }
   return (
       <div>
-    {/* // <div className={mapViewContainer}> */}
       <Marquee bannerContent={bannerContent} />
-      <Loader loading={loading}>
         <div>
           <div className={sidenav}>
             <div className={arrowBox} />
@@ -158,7 +129,7 @@ const MapViewComponent = (props) => {
           </div>
 
           <div className={patientSearchContainer}>
-            <MapView currentLocation={geoLocation} onMarkerClick={(e) => console.log(e)} defaultZoom={12} renderStaffMarkers={renderStaffMarkers} />
+            <MapView onMarkerClick={(e) => console.log(e)} defaultZoom={12} renderStaffMarkers={renderStaffMarkers}  />
             <div className={searchInput}>
               <ClickAway handleComponentFocus={useRenderPatientSearchDropDown}>
                 <div className={searchDropdownContainer}>
@@ -170,10 +141,9 @@ const MapViewComponent = (props) => {
             </div>
           </div>
           <div className={mapContainer}>
-            <MapView currentLocation={geoLocation} onMarkerClick={(e) => console.log(e)} defaultZoom={10} renderPatientBoundaries={renderPatientBoundaries} patients={patients} renderMapMarkers={renderMapMarkers} staffList={staffList} />
+            <MapView onMarkerClick={(e) => console.log(e)} defaultZoom={10} renderPatientBoundaries={renderPatientBoundaries} patients={patients} renderMapMarkers={renderMapMarkers} staffList={staffList} updateLocation={updatePatientLocation}/>
           </div>
         </div>
-      </Loader>
     </div>
   )
 }

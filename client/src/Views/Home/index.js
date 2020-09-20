@@ -2,6 +2,7 @@ import React, {Component, useState, useEffect} from 'react'
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import Admin from '../Admin'
+import Slider from '../../components/Slider'
 // import {v1 as uuid} from "uuid"; 
 import {connect} from 'react-redux'
 import {getItems, deleteItem} from '../../Actions/itemActions'
@@ -26,10 +27,9 @@ class Home extends Component {
     }
     render() {
         const { isAuthenticated, auth: { user } } = this.props
-        console.log('THIS IS USER ====>', user)
         return (
             <div>
-                {isAuthenticated ? <Map /> : <h1>Logged Out</h1> }
+                {isAuthenticated ? <Admin /> : <h1>Logged Out</h1> }
             </div>
         )
     }

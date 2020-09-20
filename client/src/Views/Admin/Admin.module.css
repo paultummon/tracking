@@ -349,3 +349,91 @@ input:checked + .slider:before {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
+
+.gridRegistrationForm {
+  display: grid;
+  grid-template-areas: 'inputForm mapLocation';
+  grid-gap: 10px;
+  background-color: blue;
+}
+
+.inputForm {
+  grid-area: inputForm;
+
+}
+
+.mapLocation {
+  grid-area: mapLocation;
+}
+
+.welcomeHeader {
+  display: block;
+}
+
+
+
+.header { grid-area: header; }
+.left { grid-area: left; }
+.right { grid-area: right;
+z-index: 5000 }
+
+.gridContainer {
+  height: 70%;
+  width: 70%;
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'left left left left right right'
+    'left left left left right right'
+    'left left left left right right'
+    'left left left left right right'
+    'left left left left right right'
+    'left left left left right right'
+    'left left left left right right'
+    'left left left left right right'
+    'left left left left right right';
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.gridContainer > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.mapContainer {
+  flex: 1.5;
+  z-index: 100000;
+  height: 100%;
+  width: 100%;
+}
+
+.form {
+  flex: 2
+}
+
+
+.formContainer {
+  display: flex;
+  width: 70%;
+  height: 70%;
+}
+
+.formContainer > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.patientCreation {
+  display: flex;
+}
+
+.titleContainer2 {
+  display: block;
+}

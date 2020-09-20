@@ -16,6 +16,12 @@ const renderStaffMarkers = (staffList) => {
     })
   }
 
+const updatePatientLocation = e => {
+  const { latLng } = e;
+  const lat = latLng.lat();
+  const lng = latLng.lng();
+}
+
 const Map = (props) => {
     const [geoLocation, setGeoLocation] = useState({ lat: '', lng: '' })
     const [loading, setLoading] = useState(true)
@@ -50,7 +56,7 @@ const Map = (props) => {
 
     return (
         <div>
-            <MapView currentLocation={geoLocation} onMarkerClick={(e) => console.log(e)} defaultZoom={12} renderStaffMarkers={renderStaffMarkers} />
+            <MapView currentLocation={geoLocation} onMarkerClick={(e) => console.log(e)} defaultZoom={12} renderStaffMarkers={renderStaffMarkers} updateLocation={updatePatientLocation} />
             <h1>Functional Map View And this is Latitude: {geoLocation.lat}, And This is Longitude: {geoLocation.lng}</h1>
         </div>
     )

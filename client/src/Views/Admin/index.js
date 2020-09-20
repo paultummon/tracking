@@ -1,24 +1,42 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-// import { loadLoggedInUserDetails } from '../../actions/users'
 import styles from './Admin.module.css'
+import MapView from '../../components/MapView'
+import Slider from '../../components/Slider'
 
 const AdminView = (props) => {
-  useEffect(() => {
-    return () => {}
-  }, [])
-
   const [panel, setPanel] = useState('')
-
   const [patientForm, setPatientFormState] = useState({ firstName: '', lastName: '', emergencyContact: '', emergencyContactNo: '', roamingRadius: '' })
   const [staffForm, setStaffFormState] = useState({ firstName: '', lastName: '', contactNo: '', location: '' })
-
+  const [patientMarker, updatePatientMarker] = useState({lat: '', lng: ''})
   const updatePatientField = e => {
     setPatientFormState({
       ...patientForm,
       [e.target.name]: e.target.value
     })
+  }
+
+  const updatePatientLocation = e => {
+    const { latLng } = e;
+    const lat = latLng.lat();
+    const lng = latLng.lng();
+    updatePatientMarker({
+      lat,
+      lng
+    })
+  }
+  
+  const patients = []
+
+  const staffList = []
+
+  const renderPatientBoundaries = ( ) => {
+
+  }
+
+  const renderMapMarkers = () => {
+
   }
 
   const updateStaffField = e => {
@@ -36,19 +54,34 @@ const AdminView = (props) => {
         </div>
         <div className={styles.navContent}>
           <div className={styles.centerNavContent}>
-            <div className={styles.registerContainer}>
               <div className={styles.registerContainer}>
-                <h1> Hello {name} </h1>
-                {!Boolean(admin) && <div className={styles.registrationForm}>
+                {/* {Boolean(admin) && <div className={styles.registrationForm}>
                   <div className={styles.titleContainer}><h1>Create Staff Member</h1></div>
                   <label for='firstName'>First Name:</label><input name='firstName' onChange={updateStaffField} id='firstName' />
                   <label for='lastName'>Last Name:</label><input name='lastName' onChange={updateStaffField} id='lastName' />
                   <label for='contactNo'>Contact No:</label><input name='contactNo' onChange={updateStaffField} id='contactNo' />
                   <label for='location'>Location:</label><input name='location' onChange={updateStaffField} id='location' />
-                </div>
-                }
+                </div> */}
+                {Boolean(admin) && <Slider />}
+                {/* {Boolean(admin) &&
+                <section className={styles.formContainer}>
+                    <section className={styles.form}>
+                      <h1>Patient Lat: {patientMarker.lat}</h1>
+                      <h1>Patient Lng: {patientMarker.lng}</h1>
+                      <div className={styles.registrationForm}>
+                      <div className={styles.titleContainer}><h1>Create Staff Member</h1></div>
+                      <label for='firstName'>First Name:</label><input name='firstName' onChange={updateStaffField} id='firstName' />
+                      <label for='lastName'>Last Name:</label><input name='lastName' onChange={updateStaffField} id='lastName' />
+                      <label for='contactNo'>Contact No:</label><input name='contactNo' onChange={updateStaffField} id='contactNo' />
+                      <label for='location'>Location:</label><input name='location' onChange={updateStaffField} id='location' />
+                    </div>
+                    </section>
+                  <section className={styles.mapContainer}>
+                    <MapView onMarkerClick={(e) => console.log(e)} defaultZoom={10} renderPatientBoundaries={renderPatientBoundaries} patients={patients} renderMapMarkers={renderMapMarkers} staffList={staffList} updateLocation={updatePatientLocation}/>
+                  </section>
+                </section>
+                } */}
               </div>
-            </div>
           </div>
         </div>
         <div className={styles.arrowBoxRight}>

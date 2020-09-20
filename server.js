@@ -29,6 +29,7 @@ mongoose
     .catch(err => console.log('THIS IS ERR ====>', err))
 
 app.use('/api/items', require('./routes/api/items'))
+app.use('/api/patients', require('./routes/api/patients'))
 app.use('/api/users', require('./routes/api/users'))
 app.use('/api/auth', require('./routes/api/auth'))
 const port = process.env.PORT || 5000
