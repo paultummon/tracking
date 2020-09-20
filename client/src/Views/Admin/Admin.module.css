@@ -141,7 +141,11 @@
 }
 
 .registrationForm {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .minimised {
@@ -414,11 +418,13 @@ z-index: 5000 }
 }
 
 .form {
-  flex: 2
+  flex: 2;
 }
 
 
 .formContainer {
+  background: rgba(255, 255, 255, 0.3);
+  margin: 10px;
   display: flex;
   width: 70%;
   height: 70%;
